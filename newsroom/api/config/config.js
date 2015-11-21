@@ -1,4 +1,4 @@
 module.exports = {
-  'secret': 'jsonwebtokensaregreat',
-  'database': 'mongodb://localhost:27017/passport-and-jwts'
+  'secret': 'newsroombytheanchors',
+  'database': 'mongodb://localhost:27017/newsroom'
 };
