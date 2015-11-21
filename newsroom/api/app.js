@@ -53,3 +53,4 @@ var routes = require('./config/routes');
 app.use("/api", routes);
 
 app.listen(3000);
+console.log("server is running")
