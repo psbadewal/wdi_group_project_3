@@ -3,10 +3,13 @@ var router   = express.Router();
 var passport = require("passport");
 
 var usersController = require('../controllers/usersController');
+var guardianController = require('../controllers/guardianController');
 var authenticationsController = require('../controllers/authenticationsController');
 
 router.post('/login', authenticationsController.login);
 router.post('/register', authenticationsController.register);
+
+// router.route('/articles').get(guardianController.articlesIndex)
 
 router.route('/users')
   .get(usersController.usersIndex)
