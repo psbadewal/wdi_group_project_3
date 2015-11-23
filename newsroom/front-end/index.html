@@ -9,9 +9,12 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
   <!-- Local files -->
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
   <script type="text/javascript" src="./js/app.js"></script>
   <script type="text/javascript" src="./js/twitter.js"></script>
   <script type="text/javascript" src="./js/guardian.js"></script>
+
   <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
@@ -80,5 +83,7 @@
       <div class="users"></div>
     </section>
   </main>
+  <div id="data">
+  </div>
 </body>
 </html>

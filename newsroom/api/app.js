@@ -14,9 +14,9 @@ var app            = express();
 // twitterDevelopment
 var server         = require('http').createServer(app);
 var port           = process.env.PORT || 3000;
-
-var io             = require('socket.io')(server);
 var Twit           = require('twit');
+var io             = require('socket.io').listen(server);
+
 
 // twitterDevelopment
 
@@ -58,8 +58,33 @@ app.use(function (err, req, res, next) {
   next();
 });
 
+/////////////////////////////////////////////////////
+//twitterDevelopment, config/twitter.js
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/index.html');
+});
+
+var twitter = new Twit({
+  consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  access_token: process.env.TWITTER_ACCESS_TOKEN,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+});
+
+var stream = twitter.stream("statuses/filter", { track: ["#london", "#paris"] });
+
+io.on('connect', function(socket){
+  console.log("connected")
+  stream.on('tweet',function(tweet){
+    io.emit('tweets', tweet);
+  })
+});
+
+//////////////////////////////////////////////////
+
 var routes = require('./config/routes');
 app.use("/api", routes);
 
-app.listen(3000);
+server.listen(3000);
 console.log("server is running")
