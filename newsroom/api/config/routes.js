@@ -9,7 +9,8 @@ var authenticationsController = require('../controllers/authenticationsControlle
 router.post('/login', authenticationsController.login);
 router.post('/register', authenticationsController.register);
 
-// router.route('/articles').get(guardianController.articlesIndex)
+router.route('/articles')
+  .get(guardianController.getArticles)
 
 router.route('/users')
   .get(usersController.usersIndex)
