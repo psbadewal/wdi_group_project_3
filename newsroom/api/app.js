@@ -47,7 +47,8 @@ app.use('/api', expressJWT({ secret: secret })
   .unless({
     path: [
       { url: '/api/login', methods: ['POST'] },
-      { url: '/api/register', methods: ['POST'] }
+      { url: '/api/register', methods: ['POST'] },
+      { url: '/api/articles', methods: ['GET'] }
     ]
   }));
 
@@ -59,12 +60,6 @@ app.use(function (err, req, res, next) {
 });
 
 /////////////////////////////////////////////////////
-//twitterDevelopment, config/twitter.js
-
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/index.html');
-});
-
 var twitter = new Twit({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
