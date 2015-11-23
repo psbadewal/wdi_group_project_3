@@ -1,6 +1,6 @@
 var request = require('request');
 
-var api_key = "27p9pvgpraxcfgkexvesemun"
+var api_key = process.env.THEGUARDIAN_NEWS_API
 
 // Get requiest 10 articles
 function getArticles(){
