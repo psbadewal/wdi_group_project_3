@@ -1,7 +1,7 @@
 $(startup);
 
 function startup(){
-  var apiKey = "27p9pvgpraxcfgkexvesemun"
+  var apiKey = "..."
   ajaxRequest(apiKey, callbackFunction)
 }
 
@@ -18,7 +18,7 @@ function callbackFunction(data){
   var newsFeed = data.response.results;
   var i = 0;
   for (i;i<newsFeed.length;i++){
-    console.log(data.response.results[i].webTitle)
+    console.log(newsFeed[i].webTitle)
   }
 }
 
