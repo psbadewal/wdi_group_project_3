@@ -8,6 +8,8 @@ function getArticles(req, res){
     if(err) return console.log (err)
     if (!err && data.statusCode == 200) {
       var dataObject = JSON.parse(data.body)
+      
+      //output to api
       res.status(200).json({ dataObject: dataObject });
 
       var i = 0;
