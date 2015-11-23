@@ -9,6 +9,7 @@ var textapi = new AYLIENTextAPI({
 });
 
 var articles = []
+var hashes = []
 
 // Get requiest 10 articles
 function getArticles(req, res){
@@ -22,11 +23,14 @@ function getArticles(req, res){
         for (i;i<dataObject.response.results.length;i++){
           var url = dataObject.response.results[i].webUrl;
           aylienArticle(req, res, url)
+          aylienHashes(req,res,url);
         }
      }
    })
-res.status(200).json({ articles: articles });
+res.status(200).json({ articles: articles,
+                        hashes: hashes });
 }
+
 
 
 function aylienArticle(req, res, url){
@@ -43,16 +47,16 @@ function aylienArticle(req, res, url){
 }
 
 
-// function aylienHashes(req,res,url){
-//   textapi.hashtags({
-//     url: url
-//   }, function(error, response) {
-//     if (error === null) {
-//       // console.log(response.hashtags);
-//       // return response
-//     }
-//   });
-// }
+function aylienHashes(req,res,url){
+  textapi.hashtags({
+    url: url
+  }, function(error, response) {
+    if (error === null) {
+      console.log(response.hashtags);
+      hashes.push(response.hashtags)
+    }
+  });
+}
 
 module.exports = {
   getArticles:  getArticles
