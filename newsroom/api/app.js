@@ -11,6 +11,15 @@ var jwt            = require('jsonwebtoken');
 var expressJWT     = require('express-jwt');
 var app            = express();
 
+// twitterDevelopment
+var server         = require('http').createServer(app);
+var port           = process.env.PORT || 3000;
+
+var io             = require('socket.io')(server);
+var Twit           = require('twit');
+
+// twitterDevelopment
+
 var config         = require('./config/config');
 var User           = require('./models/user');
 var secret         = require('./config/config').secret;
