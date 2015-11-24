@@ -16,10 +16,10 @@ var count = 0;
 function appendArticle(data) {
   count ++;
   $('#newsfeed_ul').append('<li><div class="collapsible-header"><h4>' + data.article.title +
-    '</h4></div><div class="collapsible-body"><p>'+data.article.article+'</p><img src=' + data.article.image+'><div id="hashtags_'+count+'"></div></div></li>')
+    '</h4></div><div class="collapsible-body"><p>'+data.article.article+'</p><img src=' + data.article.image+'><div id="hashtags_'+count+'"><button>Start Twitter</button</div></div></li>')
   var i = 0;
   for (i; i<data.hashtags.hashtags.length; i++) {
-    $('#hashtags_'+count).append("<p>" + data.hashtags.hashtags[i] + "</p><button>Start Twitter</button")
+    $('#hashtags_'+count).append("<p>" + data.hashtags.hashtags[i] + "</p>")
   }
 }
 

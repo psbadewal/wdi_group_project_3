@@ -60,6 +60,11 @@ app.use(function (err, req, res, next) {
 });
 
 /////////////////////////////////////////////////////
+app.get('/', function(req,res){
+  res.sendFile(__dirname + '/index.html');
+});
+/////////////////
+
 var twitter = new Twit({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
