@@ -8,55 +8,62 @@ var textapi = new AYLIENTextAPI({
   application_key: process.env.AYLIEN_KEY
 });
 
-var articles = []
-var hashes = []
-
-// Get requiest 10 articles
+// Get request 10 articles
 function getArticles(req, res){
   request('http://content.guardianapis.com/search?api-key=' + guardian_api_key, function (err, data) {
-    if(err) return console.log (err)
-      if (!err && data.statusCode == 200) {
-        var dataObject = JSON.parse(data.body)
-        var dataObjectRes = dataObject.response.results
+    if (err) return console.log (err);
 
-        var i = 0;
-        for (i;i<dataObject.response.results.length;i++){
-          var url = dataObject.response.results[i].webUrl;
-          aylienArticle(req, res, url)
-          aylienHashes(req,res,url);
-        }
-     }
-   })
-res.status(200).json({ articles: articles,
-                        hashes: hashes });
+    if (!err && data.statusCode === 200) {
+      var dataObject = JSON.parse(data.body)
+      var apiResults = dataObject.response.results
+
+      apiResults.forEach(function(result) {
+        var url = apiResults[0].webUrl;
+        var numberOfResults = apiResults.length;
+        aylienCombined(req, res, url, numberOfResults);
+      });
+    }
+  })
 }
 
+var finalResults = [];
+function returnJSON(req, res, url, results, numberOfResults) {
+  if (!url && !results) return res.status(200).json({ message: "There was an error " });
 
-
-function aylienArticle(req, res, url){
-  textapi.extract({
+  finalResults.push({
     url: url,
-    best_image: true
-  }, function(error, response) {
-    if (error === null) {
-      console.log(response)
-      articles.push(response)
-
-    }
+    article: results[0].result,
+    hashtags: results[1].result
   });
+
+  // Should finish on 10 10
+  console.log(finalResults.length, numberOfResults);
+
+  while (finalResults.length !== numberOfResults) return false;
+  return res.status(200).json(finalResults);
 }
 
-
-function aylienHashes(req,res,url){
-  textapi.hashtags({
-    url: url
-  }, function(error, response) {
+function aylienCombined(req, res, url, numberOfResults) {
+  textapi.combined({
+    url: url,
+    "endpoint": ["extract", "hashtags"]
+  }, function(error, result) {
     if (error === null) {
-      console.log(response.hashtags);
-      hashes.push(response.hashtags)
+      returnJSON(req, res, url, result.results, numberOfResults)
+    } else {
+      returnJSON(req, res, null, null, numberOfResults)
     }
-  });
+  })
 }
+
+function aylienArticle(){
+
+}
+
+function aylienHashtags(){
+  
+}
+
 
 module.exports = {
   getArticles:  getArticles
