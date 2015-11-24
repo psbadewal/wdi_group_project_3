@@ -2,15 +2,27 @@ body {
   font-family: 'Playfair Display', serif;
 }
 
-span {
-  color: black;
+/*Changes Materilize*/
+
+.collapsible {
+  box-shadow: none;
 }
 
-.navbar-brand {
-  color: black;
+.inside-collapsible {
+  margin: 0 1rem 1rem;
 }
 
-/*.navToggle {
-  color: black;
-  background: #fff8e1;
-}*/
+/*CALL OUT TOP OF THE PAGE*/
+
+#callout {
+  background-image: url(https://i.guim.co.uk/img/media/e98ab675da0c019634a9258bd651378145f02419/498_157_1979_1187/master/1979.jpg?w=1920&q=85&auto=format&sharp=10&s=ab37b4b4d6d78114bdada7f0ebd4d7cc);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 12rem 0;
+}
+
+#callout h2 {
+  color: red;
+}
+
+
