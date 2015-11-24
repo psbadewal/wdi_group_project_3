@@ -125,10 +125,11 @@ function ajaxRequest(method, url, data, callback) {
   });
 }
 
-//////////JQuery for front-end CSS /////////////
 
-$( ".article" ).click(function() {
-  $( "p" ).toggle( "slow", function() {
-    // Animation complete.
-  });
-});
+// //////////JQuery for front-end CSS /////////////
+
+// $( ".article" ).click(function() {
+//   $( "p" ).toggle( "slow", function() {
+//     // Animation complete.
+//   });
+// });
