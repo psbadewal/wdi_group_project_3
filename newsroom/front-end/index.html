@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>NewsRoom</title>
-  
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="./css/style.css">
 
@@ -14,16 +14,14 @@
   <script type="text/javascript" src="./js/app.js"></script>
   <script type="text/javascript" src="./js/twitter.js"></script>
   <script type="text/javascript" src="./js/guardian.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default, #fff8e1 amber lighten-5">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" class="navbar-toggle collapsed, #fff8e1 amber lighten-5" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -32,10 +30,10 @@
           <a class="navbar-brand" href="/">Newsroom</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/" class="register-link logged-out">Register</a></li>
-          <li><a href="/" class="login-link logged-out">Login</a></li>
-          <li><a href="/" class="users-link logged-in">Users</a></li>
-          <li><a href="/" class="logout-link logged-in">Logout</a></li>
+          <li class="navToggle"><a href="/" class="register-link logged-out">Register</a></li>
+          <li class="navToggle"><a href="/" class="login-link logged-out">Login</a></li>
+          <li class="navToggle"><a href="/" class="users-link logged-in">Users</a></li>
+          <li class="navToggle"><a href="/" class="logout-link logged-in">Logout</a></li>
         </ul>
       </div><!-- /.container-fluid -->
     </nav>
@@ -61,7 +59,7 @@
           <label for="register-password">Password</label>
           <input type="password" name="password" id="register-password" class="form-control" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default, #000000 black">Submit</button>
       </form>
     </section>
     <section id="login">
@@ -75,7 +73,7 @@
           <label for="login-password">Password</label>
           <input type="password" name="password" id="login-password" class="form-control"  placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default, #000000 black">Submit</button>
       </form>
     </section>
     <section id="users">
@@ -83,7 +81,24 @@
       <div class="users"></div>
     </section>
   </main>
-  <div id="data">
+  <section id="heatmap">test</section>
+    <section id="newsHeader">test</section>
+    
+    <section class="article">
+      <div>Article Image</div>
+      <p> Article Headline </p>
+      <p> Article </p>
+      <div> 
+          <h5>Social Media Commentary</h5> 
+          <p>Social Media Comment</p>
+      </div>
+    </section>
+
+    <section class="article"></section>
+    <section class="article"></section>
+    <section class="article"></section>
+    <section class="article"></section>
+    <section class="article"></section><div id="data">
   </div>
 </body>
 </html>

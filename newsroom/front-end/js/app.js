@@ -124,3 +124,11 @@ function ajaxRequest(method, url, data, callback) {
     displayErrors(data.responseJSON.message);
   });
 }
+
+//////////JQuery for front-end CSS /////////////
+
+$( ".article" ).click(function() {
+  $( "p" ).toggle( "slow", function() {
+    // Animation complete.
+  });
+});

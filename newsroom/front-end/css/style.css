@@ -1,0 +1,16 @@
+body {
+  font-family: 'Playfair Display', serif;
+}
+
+span {
+  color: black;
+}
+
+.navbar-brand {
+  color: black;
+}
+
+/*.navToggle {
+  color: black;
+  background: #fff8e1;
+}*/
