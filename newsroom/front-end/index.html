@@ -1,20 +1,3 @@
-<!-- <!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>NewsRoom</title>
-  <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" href="./css/style.css">
-
-<script type="text/javascript" src="./js/app.js"></script>
-<script type="text/javascript" src="./js/twitter.js"></script>
-<script type="text/javascript" src="./js/guardian.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
-<script src="http://localhost:3000/socket.io/socket.io.js"></script>
- -->
-
 <!doctype html>
 <html>
 <head>
@@ -24,26 +7,21 @@
   <!-- Latest compiled and minified CSS -->
 <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous"> -->
   <!-- Latest compiled and minified JavaScript -->
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
             
   <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script> -->
-
   <!-- Local files -->
   <script type="text/javascript" src="./js/app.js"></script>
   <script type="text/javascript" src="./js/newsfeed.js"></script>
   <!--<script type="text/javascript" src="./js/twitter.js"></script>
   <script type="text/javascript" src="./js/guardian.js"></script>-->
-
   <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
   <header>
     <nav class="navbar navbar-default">
       <div class="container">
-
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
@@ -62,19 +40,16 @@
       </div>
     </nav>
   </header>
-
   <div id="callout">
     <div class="container">
       <h2>Article title</h2>
     </div>
   </div>
-
   <div id="article-dropdown" class="container">
     <ul id="newsfeed_ul" class="collapsible" data-collapsible="accordion">
     
     </ul>
   </div>
-
   <main class="container">
     <div class="hide alert alert-danger" role="alert"></div>
     <section id="register">
@@ -99,7 +74,6 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
     </section>
-
     <section id="login">
       <h2>Login</h2>
       <form class="login" method="post" action="/login">
@@ -114,12 +88,10 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
     </section>
-
     <section id="users">
       <h2>Users</h2>
       <div class="users"></div>
     </section>
-
   </main>
 </body>
 </html>
