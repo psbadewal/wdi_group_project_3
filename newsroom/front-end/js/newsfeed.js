@@ -16,7 +16,7 @@ var count = 0;
 function appendArticle(data) {
   count ++;
   $('#newsfeed_ul').append('<li><div class="collapsible-header"><h4>' + data.article.title +
-    '</h4></div><div class="collapsible-body"><p>'+data.article.article+'</p><img src=' + data.article.image+'><div id="hashtags_'+count+'"><button id="twitter-button">Start Twitter</button</div></div></li>')
+    '</h4></div><div class="collapsible-body"><p>'+data.article.article+'</p><img src=' + data.article.image+'><div id="hashtags_'+count+'"><button id="twitter-button">Start Twitter</button</div></div><div id="twitter-area"></div></li>')
 
   $( '#twitter-button' ).on("click", twitterStreamStart)
 
@@ -35,7 +35,9 @@ function twitterStreamStart(){
   });
 
   socket.on('tweets', function(tweet){
-   console.log(tweet)
+    console.log(tweet)
+   var html = '<div class="row"><div class="col-md-6 col-md-offset-3 tweet"><img src="' + tweet.user_profile_image + '" class="avatar pull-left"/><div class="names"><span class="full-name">' + tweet.name + ' </span><span class="username">@' +tweet.screen_name + '</span></div><div class="contents"><span class="text">' + tweet.text + '</span></div></div></div>';
+    $('#twitter-area').prepend(html)
   });
 };
 
