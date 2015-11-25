@@ -2,6 +2,10 @@ body {
   font-family: 'Playfair Display', serif;
 }
 
+h6 {
+  display: inline-block;
+}
+
 /*Changes Materilize*/
 
 .collapsible {
@@ -29,10 +33,7 @@ img {
   max-width: 100%;
 }
 
-p {
-  display: inline-block;
-  margin: .3rem
-}
+
 
 /*Twitter */
 
@@ -44,5 +45,16 @@ p {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+}
+
+
+#twitter-button {
+  display: block;
+}
+
+#twitter-area {
+
+  padding: 10px;
+  overflow: auto;
 }
 
