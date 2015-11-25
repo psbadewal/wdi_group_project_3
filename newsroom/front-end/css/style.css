@@ -2,14 +2,47 @@ body {
   font-family: 'Playfair Display', serif;
 }
 
-.card,
-.card-reveal {
-  height: auto;
+#article-dropdown {
+ /*border: 22px solid #b3b3b3;*/
+ background: white;
 }
+
+h2 {
+  color: white;
+}
+
+
+.z-depth-1, 
+nav, 
+.card-panel, 
+.card, 
+.toast, 
+.btn, 
+.btn-large, 
+.btn-floating, 
+.dropdown-content, 
+.collapsible, 
+.side-nav {
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0),0 0px 0px 0 rgba(0,0,0,0); 
+}
+
+nav {
+  background-color: #333333;
+}
+
+.card {
+  background: #f2f2f2;
+  height: 500px;
+  border-top: 15px solid #00aced;
+}
+
 
 p {
  overflow: auto;
+ background: #cccccc;
+ text-align: center;
 }
+
 h6 {
   display: inline-block;
 }
@@ -56,9 +89,21 @@ img {
 }
 
 
-#twitter-button {
-  display: block;
+.twitter-button {
+  float: right;
+  border: 1px solid #00aced;
+  border-radius: 50px;
+  background-color: #00aced;
+  color: white;
+  font-size: 12px;
+  margin-bottom: 20px;
 }
+
+footer.page-footer {
+  background-color: #333333;
+}
+
+
 
 #twitter-area {
 
