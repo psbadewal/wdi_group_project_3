@@ -38,7 +38,10 @@ Newsfeed.twitterStreamStart = function(){
    console.log("Connected!");
  });
 
+  var count = 0;
   socket.on('tweets', function(tweet){
+    count ++;
+    console.log(count)
     console.log(tweet)
     $("#twitter-feed").show();
     var html = '<div class="row"><div class="col-md-6 col-md-offset-3 tweet"><img src="' + tweet.user.profile_image_url + '" class="avatar pull-left"/><div class="names"><span class="full-name">' + tweet.user.name + ' </span><span class="username">@' +tweet.user.screen_name + '</span></div><div class="contents"><span class="text">' + tweet.text + '</span></div></div></div>';
