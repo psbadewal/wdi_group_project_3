@@ -79,10 +79,11 @@ io.on('connect', function(socket){
   if (stream) stream.stop();
 
   socket.on('updateSearch', function (hashtags) {
+    console.log(hashtags)
     if (stream) stream.stop();
     stream = twitter.stream("statuses/filter", { track: hashtags, lang: "en" });
     stream.start();
-  
+
     stream.on('tweet',function(tweet){
       io.emit('tweets', tweet);
     })

@@ -66,3 +66,6 @@ img {
   overflow: auto;
 }
 
+.noshow{
+  display: none;
+}
