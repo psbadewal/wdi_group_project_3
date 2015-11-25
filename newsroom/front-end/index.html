@@ -7,7 +7,7 @@
   <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
-            
+
   <!-- Local files -->
   <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 
@@ -20,24 +20,21 @@
 <body>
   <header>
     <nav class="navbar navbar-default">
-<!--       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-          </button>
-        </div> -->
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/" class="register-link logged-out">Register</a></li>
           <li><a href="/" class="login-link logged-out">Login</a></li>
-<!--           <li><a href="/" class="users-link logged-in">Users</a></li> -->
+          <!--           <li><a href="/" class="users-link logged-in">Users</a></li> -->
           <li><a href="/" class="logout-link logged-in">Logout</a></li>
         </ul>
       </div>
     </nav>
   </header>
 
-  <!-- Modal Trigger -->
   <a id='twitter-overlay'class="modal-trigger waves-effect waves-light btn noshow" href="#modal1">Modal</a>
+
+  <a id='login-overlay'class="noshow modal-trigger waves-effect waves-light btn modal-trigger" href="#login">Modal</a>
+
+  <a id='register-overlay' class="noshow modal-trigger waves-effect waves-light btn modal-trigger" href="#register">Modal</a>
 
   <!-- Modal Structure -->
   <div id="modal1" class="modal modal-fixed-footer">
@@ -51,58 +48,56 @@
   </div>
 
   <div id="article-dropdown" class="container">
-  <h2>News</h2>
+    <h2>News</h2>
     <div id="newsfeed_ul" class="row">
     </div>
   </div>
 
   <div class="home-page">
     <div class="row">
-          <div class="logo col s6 offset-s6"><img src="/assets/newsroom_logo.png"></div>
+      <div class="logo col s6 offset-s6"><img src="/assets/newsroom_logo.png"></div>
+      <div id="register" class="modal">
+        <div class="modal-content">
+          <h4>Register</h4>
+          <form class="register" method="post" action="/register">
+            <div class="form-group">
+              <label for="register-firstName">First Name:</label>
+              <input type="text" name="firstName" id="register-firstName" class="form-control" placeholder="Please enter your first name">
+            </div>
+            <div class="form-group">
+              <label for="register-lastName">Last Name:</label>
+              <input type="text" name="lastName" id="register-lastName" class="form-control" placeholder="Please enter your last name">
+            </div>
+            <div class="form-group">
+              <label for="register-email">Email address</label>
+              <input type="email" name="email" id="register-email" class="form-control" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="register-password">Password</label>
+              <input type="password" name="password" id="register-password" class="form-control" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
         </div>
+      </div>
+      <div id="login" class="modal">
+        <div class="modal-content">
+          <h4>Login</h4>
+          <form class="login" method="post" action="/login">
+            <div class="form-group">
+              <label for="login-email">Email address</label>
+              <input type="email" name="email" id="login-email" class="form-control" placeholder="Email">
+              <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" name="password" id="login-password" class="form-control" value="password" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <main class="container">
-    <div class="hide alert alert-danger" role="alert"></div>
-    <section id="register">
-      <h2>Register</h2>
-      <form class="register" method="post" action="/register">
-        <div class="form-group">
-          <label for="register-firstName">First Name:</label>
-          <input type="text" name="firstName" id="register-firstName" class="form-control" placeholder="Please enter your first name">
-        </div>
-        <div class="form-group">
-          <label for="register-lastName">Last Name:</label>
-          <input type="text" name="lastName" id="register-lastName" class="form-control" placeholder="Please enter your last name">
-        </div>
-        <div class="form-group">
-          <label for="register-email">Email address</label>
-          <input type="email" name="email" id="register-email" class="form-control" placeholder="Email">
-        </div>
-        <div class="form-group">
-          <label for="register-password">Password</label>
-          <input type="password" name="password" id="register-password" class="form-control" placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-    </section>
-
-    
-    <section id="login">
-      <h2>Login</h2>
-      <form class="login" method="post" action="/login">
-        <div class="form-group">
-          <label for="login-email">Email address</label>
-          <input type="email" name="email" id="login-email" class="form-control" placeholder="Email">
-        </div>
-        <div class="form-group">
-          <label for="login-password">Password</label>
-          <input type="password" name="password" id="login-password" class="form-control" value="password" placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-    </section>
-  </main>
 
   <footer id='footer' class="page-footer">
     <div class="container">
@@ -124,8 +119,8 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      © 2014 Copyright Text
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        © 2014 Copyright Text
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>
   </footer>

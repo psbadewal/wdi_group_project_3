@@ -5,7 +5,7 @@ function init(){
   $("form").on("submit", submitForm);
   $(".logout-link").on("click", logout);
   $(".users-link").on("click", users);
-  $(".login-link, .register-link, .users-link").on("click", showPage);
+  $(".login-link, .register-link").on("click", showPage);
   hideErrors();
   checkLoginState();  
 }
@@ -92,7 +92,7 @@ function loggedOutState(){
   $(".logged-in").hide();
   $(".home-page").show();
   $("section").hide();
-  $("logged-out").hide();
+  $("logged-out").show();
   $("#register").hide();
   $("#article-dropdown").hide()
   return hideUsers();
