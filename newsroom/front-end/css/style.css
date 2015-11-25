@@ -33,7 +33,9 @@ img {
   max-width: 100%;
 }
 
-
+p {
+  display: inline-block;
+}
 
 /*Twitter */
 
