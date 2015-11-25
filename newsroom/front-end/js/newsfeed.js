@@ -20,8 +20,11 @@ Newsfeed.loop = function(data){
 }
 
 Newsfeed.appendArticle = function(data, index) {
-  $('#newsfeed_ul').append('<li><div class="collapsible-header"><h4>' + data.article.title +
-    '</h4></div><div class="collapsible-body"><p>'+data.article.article+'</p><img src=' + data.article.image+'><div id="hashtags_'+index+'"><button class="twitter-button">Start Twitter</button></div></div></div></li>')
+  $('#newsfeed_ul').append('<div class="col s12 m6"><div class="card"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="images/office.jpg"></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">'
+   + data.article.title + 
+   '<i class="material-icons right">more_vert</i></span><p><a href="#">This is a link</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">'
+  + data.article.title + 
+    '<i class="material-icons right">close</i></span><p>'+data.article.article+'</p><img src=' + data.article.image+'><div id="hashtags_'+index+'"><button class="twitter-button">Start Twitter</button></p></div></div></div>')
 
   $.each(data.hashtags.hashtags, function(i, hashtag) {
     $('#hashtags_'+index).append("<p>" + data.hashtags.hashtags[i] + "</p>")
