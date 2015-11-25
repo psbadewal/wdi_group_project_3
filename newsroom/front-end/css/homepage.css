@@ -1,0 +1,14 @@
+.home-page {
+  min-width: 100%;
+  min-height: 500px;
+  background-image: url('http://i0.wp.com/www.hiphophdwallpapers.com/wp-content/uploads/2015/01/London-Wallpaper1.jpg?zoom=2&resize=680%2C425');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.logo{
+  margin-top: 90px;
+}
+
+#footer{
+  margin-top: -20px;
+}

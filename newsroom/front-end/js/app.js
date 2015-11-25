@@ -90,7 +90,8 @@ function loggedInState(){
 
 function loggedOutState(){
   $(".logged-in").hide();
-  $("section").show();
+  $(".home-page").show();
+  $("section").hide();
   $("logged-out").hide();
   $("#register").hide();
   $("#article-dropdown").hide()
