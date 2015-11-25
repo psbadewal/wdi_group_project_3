@@ -78,15 +78,13 @@ io.on('connect', function(socket){
   console.log("connected")
   if (stream) stream.stop();
 
-  socket.on('updateSearch', function (array) {
-    var hashtags    = array[0];
-    var twitterArea = array[1];
-
+  socket.on('updateSearch', function (hashtags) {
     if (stream) stream.stop();
     stream = twitter.stream("statuses/filter", { track: hashtags, lang: "en" });
+    stream.start();
   
     stream.on('tweet',function(tweet){
-      io.emit('tweets', [tweet, twitterArea]);
+      io.emit('tweets', tweet);
     })
   });
 });
