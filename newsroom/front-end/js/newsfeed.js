@@ -8,6 +8,7 @@ $(function(){
     var hashArray   = $(this).siblings().text().split(/(?=#)/);
     var socket = io('http://localhost:3000/');
     socket.emit('updateSearch', hashArray);
+    $("#twitter-overlay").trigger("click");
   })
 })
 
