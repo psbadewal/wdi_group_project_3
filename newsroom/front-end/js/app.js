@@ -79,14 +79,21 @@ function displayErrors(data){
 }
 
 function loggedInState(){
-  $("section, .logged-out").hide();
-  $("#users, .logged-in").show();
+  $("section").hide();  //log-out button shows
+  $(".logged-out").hide();
+  // $("#users").hide(); 
+  $(".logged-in").show(); //log-out button
+  $("#article-dropdown").show()
+  // init()
   return getUsers();
 }
 
 function loggedOutState(){
-  $("section, .logged-in").hide();
-  $("#register, .logged-out").show();
+  $(".logged-in").hide();
+  $("section").show();
+  $("logged-out").hide();
+  $("#register").hide();
+  $("#article-dropdown").hide()
   return hideUsers();
 }
 

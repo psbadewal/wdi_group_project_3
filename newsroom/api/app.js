@@ -46,9 +46,9 @@ app.use(passport.initialize());
 app.use('/api', expressJWT({ secret: secret })
   .unless({
     path: [
-      { url: '/api/login', methods: ['POST'] },
-      { url: '/api/register', methods: ['POST'] },
-      { url: '/api/articles', methods: ['GET'] }
+    { url: '/api/login', methods: ['POST'] },
+    { url: '/api/register', methods: ['POST'] },
+    { url: '/api/articles', methods: ['GET'] }
     ]
   }));
 
@@ -72,13 +72,23 @@ var twitter = new Twit({
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
-var stream = twitter.stream("statuses/filter", { track: ["#london", "#paris"] });
+var stream;
 
 io.on('connect', function(socket){
   console.log("connected")
-  stream.on('tweet',function(tweet){
-    io.emit('tweets', tweet);
-  })
+  if (stream) stream.stop();
+
+  socket.on('updateSearch', function (array) {
+    var hashtags    = array[0];
+    var twitterArea = array[1];
+
+    if (stream) stream.stop();
+    stream = twitter.stream("statuses/filter", { track: hashtags, lang: "en" });
+  
+    stream.on('tweet',function(tweet){
+      io.emit('tweets', [tweet, twitterArea]);
+    })
+  });
 });
 
 //////////////////////////////////////////////////
