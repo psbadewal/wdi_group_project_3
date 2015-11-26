@@ -8,6 +8,7 @@ body {
 
 h2 {
   color: red;
+  text-align: center;
 }
 
 
@@ -31,8 +32,13 @@ nav {
 
 .card {
   background: #f2f2f2;
-  height: 500px;
+  height: 580px;
   border-top: 15px solid #00aced;
+  position: relative;
+}
+
+.card h3 {
+  font-size: 30px;
 }
 
 i, cite, em, var, address, dfn {
@@ -42,10 +48,7 @@ i, cite, em, var, address, dfn {
 p {
  overflow: auto;
  background: #cccccc;
- text-align: justify;
- -webkit-column-count: 2; /* Chrome, Safari, Opera */
-     -moz-column-count: 2; /* Firefox */
-     column-count: 2;
+ text-align: left;
      padding: 5px;
 }
 
@@ -97,9 +100,26 @@ img {
   max-width: 100%;
 }
 
-p {
-  display: inline-block;
+#logoNewsFeed {
+  margin: 0 auto;
+  height: 50%;
+  width: 50%;
+  margin-left: 25%;
 }
+
+#twitterBox {
+  /*border: 2px solid #00aced;*/
+  height: 40%;
+  width: 100%;
+}
+
+#hashTagContainer {
+  font-size: 20px;
+  color: white;
+
+/*p {
+  display: inline-block;
+}*/
 
 /*Twitter*/
 
@@ -115,13 +135,14 @@ p {
 
 
 .twitter-button {
-  float: right;
+  margin-top: 12px;
   border: 1px solid #00aced;
-  border-radius: 50px;
   background-color: #00aced;
   color: white;
-  font-size: 12px;
-  margin-bottom: 20px;
+  font-size: 20px;
+  width: calc(100% - 40px);
+  position: absolute;
+  bottom: 20px;
 }
 
 footer.page-footer {
@@ -138,6 +159,16 @@ footer.page-footer {
 
 .noshow{
   display: none;
+}
+
+.eighty{
+  display: inline-block;
+  width: 75%
+}
+
+.twenty{
+  display: inline-block;
+  width: 20%
 }
 
 .twitter-pic{
