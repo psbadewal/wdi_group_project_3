@@ -8,6 +8,8 @@ var passport       = require('passport');
 var cookieParser   = require("cookie-parser");
 var methodOverride = require("method-override");
 var jwt            = require('jsonwebtoken');
+var oauthshim      = require('./config/shim');
+var creds          = require("./config/credentials")
 var expressJWT     = require('express-jwt');
 var app            = express();
 
@@ -28,6 +30,12 @@ mongoose.connect(config.database);
 
 require('./config/passport')(passport);
 
+// Define a path where to put this OAuth Shim
+app.all('/proxy', oauthshim);
+
+// Initiate the shim with credentials
+oauthshim.init(creds);
+
 app.use(methodOverride(function(req, res){
   if (req.body && typeof req.body === 'object' && '_method' in req.body) {
     var method = req.body._method
@@ -46,9 +54,11 @@ app.use(passport.initialize());
 app.use('/api', expressJWT({ secret: secret })
   .unless({
     path: [
-    { url: '/api/login', methods: ['POST'] },
+    { url: '/api/login',    methods: ['POST'] },
     { url: '/api/register', methods: ['POST'] },
-    { url: '/api/articles', methods: ['GET'] }
+    { url: '/api/twitter',  methods: ['POST'] },
+    { url: '/api/articles', methods: ['GET'] },
+    { url: '/proxy',        methods: ['GET'] },
     ]
   }));
 
@@ -76,18 +86,31 @@ var stream;
 
 io.on('connect', function(socket){
   console.log("connected")
-  if (stream) stream.stop();
+  if (stream) {
+    stream.stop();
+    stream = null;
+  }
 
   socket.on('updateSearch', function (hashtags) {
-    console.log(hashtags)
-    if (stream) stream.stop();
-    stream = twitter.stream("statuses/filter", { track: hashtags, lang: "en" });
-    stream.start();
+    // console.log(hashtags)
+    if (stream) {
+      stream.stop();
+      stream = null;
+    }
 
+    stream = twitter.stream("statuses/filter", { track: hashtags, lang: "en" });
     stream.on('tweet',function(tweet){
+      console.log(tweet);
       io.emit('tweets', tweet);
     })
   });
+
+  socket.on('stopSearch', function() {
+    if (stream) {
+      stream.stop();
+      stream = null;
+    }
+  })
 });
 
 //////////////////////////////////////////////////

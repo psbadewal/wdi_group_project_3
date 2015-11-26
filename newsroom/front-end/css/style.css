@@ -116,7 +116,10 @@ img {
 #hashTagContainer {
   font-size: 20px;
   color: white;
-}
+
+/*p {
+  display: inline-block;
+}*/
 
 /*Twitter*/
 
@@ -166,4 +169,8 @@ footer.page-footer {
 .twenty{
   display: inline-block;
   width: 20%
+}
+
+.twitter-pic{
+  border-radius: 50%;
 }

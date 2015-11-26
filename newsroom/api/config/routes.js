@@ -8,7 +8,7 @@ var authenticationsController = require('../controllers/authenticationsControlle
 
 router.post('/login', authenticationsController.login);
 router.post('/register', authenticationsController.register);
-
+router.post('/twitter', authenticationsController.twitter)
 
 router.route('/articles')
   .get(guardianController.getArticles)
