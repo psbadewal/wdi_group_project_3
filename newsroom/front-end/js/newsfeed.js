@@ -31,7 +31,7 @@ Newsfeed.appendArticle = function(data, index) {
     '<i class="material-icons right">X</i></span><p>'+data.article.article+'</p><div id="hashtags_'+index+'"></p><button class="twitter-button"><a class="modal-trigger waves-effect waves-light btn" href="#modal1">Start Twitter</a></button></div></div></div>')
 
   $.each(data.hashtags.hashtags, function(i, hashtag) {
-    $('#hashtags_'+index).append("<p class='noshow'>" + data.hashtags.hashtags[i] + "</p>")
+    $('#hashtags_'+index).append("<p>" + data.hashtags.hashtags[i] + "</p>")
 
   })
 }
