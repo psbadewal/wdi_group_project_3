@@ -5,7 +5,7 @@ function init(){
   $("form").on("submit", submitForm);
   $(".logout-link").on("click", logout);
   $(".users-link").on("click", users);
-  $(".login-link, .register-link, .users-link").on("click", showPage);
+  $(".login-link, .register-link").on("click", showPage);
   hideErrors();
   checkLoginState();  
 }
@@ -28,6 +28,8 @@ function showPage() {
 
 function submitForm(){
   event.preventDefault();
+  $('#agree-button').trigger("click")
+  $('#agree-button-login').trigger("click")
 
   var method = $(this).attr("method");
   var url    = "http://localhost:3000/api" + $(this).attr("action");
@@ -90,8 +92,9 @@ function loggedInState(){
 
 function loggedOutState(){
   $(".logged-in").hide();
-  $("section").show();
-  $("logged-out").hide();
+  $(".home-page").show();
+  $("section").hide();
+  $(".logged-out").show();
   $("#register").hide();
   $("#article-dropdown").hide()
   return hideUsers();
