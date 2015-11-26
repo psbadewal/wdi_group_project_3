@@ -94,7 +94,7 @@ function loggedOutState(){
   $(".logged-in").hide();
   $(".home-page").show();
   $("section").hide();
-  $("logged-out").show();
+  $(".logged-out").show();
   $("#register").hide();
   $("#article-dropdown").hide()
   return hideUsers();
