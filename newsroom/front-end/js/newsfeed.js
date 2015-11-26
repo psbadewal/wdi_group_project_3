@@ -35,10 +35,10 @@ Newsfeed.loop = function(data){
 
 Newsfeed.appendArticle = function(data, index) {
   $('#newsfeed_ul').append('<div class="col s12 m6"><div class="card"><div class="card-image waves-effect waves-block waves-light"></div><div class="card-content"><span class="card-title activator grey-text text-darken-4"><img src=' + data.article.image+'>'
-   + data.article.title + 
-   '<i class="material-icons right"></i></span><div id="hashTagContainer"><span class="rotate" id="hashtags_'+index+'"></span></div><button class="twitter-button">Start Twitter</button></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">'
+    + data.article.title + 
+   '<i class="material-icons right"></i><div id="twitterBox"></span><div id="hashTagContainer"></div><button class="twitter-button"><span class="rotate eighty" id="hashtags_'+index+'"></span><span class="twenty"><i class="fa fa-twitter fa-2x"></i></span></button></div></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">'
   + data.article.title + 
-    '<i class="material-icons right">X</i></span><p>'+data.article.article+'<button class="twitter-button"><a class="modal-trigger waves-effect waves-light btn" href="#modal1">Start Twitter</a></button></div></div></div>')
+    '<i class="material-icons right">X</i></span><p>'+data.article.article+'</div></div></div>')
 
   $.each(data.hashtags.hashtags, function(i, hashtag) {
     $('#hashtags_'+index).append(hashtag+",")
