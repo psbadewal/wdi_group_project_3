@@ -3,12 +3,11 @@ body {
 }
 
 #article-dropdown {
- /*border: 22px solid #b3b3b3;*/
  background: white;
 }
 
 h2 {
-  color: white;
+  color: red;
 }
 
 
