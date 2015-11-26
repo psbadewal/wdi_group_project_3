@@ -71,3 +71,7 @@ p {
 .noshow{
   display: none;
 }
+
+.twitter-pic{
+  border-radius: 50%;
+}
