@@ -2,14 +2,69 @@ body {
   font-family: 'Playfair Display', serif;
 }
 
-.card,
-.card-reveal {
-  height: auto;
+#article-dropdown {
+ background: white;
+}
+
+h2 {
+  color: red;
+}
+
+
+.z-depth-1, 
+nav, 
+.card-panel, 
+.card, 
+.toast, 
+.btn, 
+.btn-large, 
+.btn-floating, 
+.dropdown-content, 
+.collapsible, 
+.side-nav {
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0),0 0px 0px 0 rgba(0,0,0,0); 
+}
+
+nav {
+  background-color: #333333;
+}
+
+.card {
+  background: #f2f2f2;
+  height: 500px;
+  border-top: 15px solid #00aced;
+}
+
+i, cite, em, var, address, dfn {
+   font-style: normal
 }
 
 p {
  overflow: auto;
+ background: #cccccc;
+ text-align: justify;
+ -webkit-column-count: 2; /* Chrome, Safari, Opera */
+     -moz-column-count: 2; /* Firefox */
+     column-count: 2;
+     padding: 5px;
 }
+
+/*a {
+  background: #00aced;
+}
+*/
+
+/*.modal-trigger waves-effect waves-light btn {
+  background: #00aced;
+}
+*/
+
+.btn, 
+.btn-large {
+   background-color: #00aced;
+} 
+
+
 h6 {
   display: inline-block;
 }
@@ -24,14 +79,15 @@ h6 {
   margin: 0 1rem 1rem;
 }
 
+
 /*CALL OUT TOP OF THE PAGE*/
 
 /*#callout {
   background-image: url(https://i.guim.co.uk/img/media/e98ab675da0c019634a9258bd651378145f02419/498_157_1979_1187/master/1979.jpg?w=1920&q=85&auto=format&sharp=10&s=ab37b4b4d6d78114bdada7f0ebd4d7cc);
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 12rem 0;
-}*/
+  padding: 12rem 0; */
+}
 
 #callout h2 {
   color: red;
@@ -45,7 +101,7 @@ p {
   display: inline-block;
 }
 
-/*Twitter */
+/*Twitter*/
 
 .tweet {
   padding: 5px;
@@ -58,9 +114,21 @@ p {
 }
 
 
-#twitter-button {
-  display: block;
+.twitter-button {
+  float: right;
+  border: 1px solid #00aced;
+  border-radius: 50px;
+  background-color: #00aced;
+  color: white;
+  font-size: 12px;
+  margin-bottom: 20px;
 }
+
+footer.page-footer {
+  background-color: #333333;
+}
+
+
 
 #twitter-area {
 

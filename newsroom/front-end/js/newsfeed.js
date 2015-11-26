@@ -7,6 +7,8 @@ $(function(){
   $('body').on("click", ".twitter-button", function(){
     $("#twitter-feed").empty();
     var hashArray   = $(this).siblings().text().split(/(?=#)/);
+    console.log(hashArray)
+
     var socket = io('http://localhost:3000/');
     socket.emit('updateSearch', hashArray);
     $("#twitter-overlay").trigger("click");
@@ -40,7 +42,7 @@ Newsfeed.twitterStreamStart = function(){
   var socket = io('http://localhost:3000/');
 
   socket.on('connect', function(tweet){
-   console.log("Connected!");
+   console.log("Connected with twitter!");
  });
 
   var count = 0;
