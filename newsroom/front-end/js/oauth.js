@@ -33,7 +33,7 @@ hello.on('auth.login', function(auth){
 hello.init({
   twitter: "kebvQmjLrKdpec4X59upXG3We"
 },{
-  redirect_uri: window.location.href,
+  redirect_uri: "http://localhost:8000/",
   oauth_proxy: "http://localhost:3000/proxy"
 });
 

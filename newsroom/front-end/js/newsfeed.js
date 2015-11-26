@@ -6,9 +6,12 @@ $(function(){
   $("#twitter-feed").hide();
 
   $('body').on("click", ".twitter-button", function(){
+    console.log(this)
+
     $("#twitter-feed").empty();
     $(".wait").show();
-    var hashArray   = $(this).siblings().text().split(/(?=#)/);
+
+    var hashArray   = $(this).children().text().split(/(?=#)/);
     console.log(hashArray)
 
     socket.emit('updateSearch', hashArray);
@@ -31,9 +34,13 @@ $(function(){
   $("#stopSearch").on("click", function(){
     socket.emit('stopSearch');
   });
-})
+
+
+
 
 var Newsfeed = Newsfeed || {};
+
+
 
 Newsfeed.loop = function(data){
   $.each(data, function(index, article) {
@@ -41,18 +48,21 @@ Newsfeed.loop = function(data){
   })
 }
 
+
 Newsfeed.appendArticle = function(data, index) {
+
   $('#newsfeed_ul').append('<div class="col s12 m6"><div class="card"><div class="card-image waves-effect waves-block waves-light"></div><div class="card-content"><span class="card-title activator grey-text text-darken-4"><img src=' + data.article.image+'>'
     + data.article.title + 
-   '<i class="material-icons right"></i><div id="twitterBox"></span><div id="hashTagContainer"></div><button class="twitter-button"><span class="rotate eighty" id="hashtags_'+index+'"></span><span class="twenty"><i class="fa fa-twitter fa-2x"></i></span></button></div></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">'
+   '<i class="material-icons right"></i><div id="twitterBox"></span><button id="button_'+index+'" class="twitter-button"><span class="rotate eighty" id="hashtags_'+index+'"></span><span class="twenty"><i class="fa fa-twitter fa-2x"></i></span></button></div></div><div class="card-reveal"><span class="card-title grey-text text-darken-4"><i class="fa fa-times material-icons right"></i>'
   + data.article.title + 
-    '<i class="material-icons right">X</i></span><p>'+data.article.article+'</div></div></div>')
+    '<hr></span><p class="article-text">'+data.article.article+'</div></div></div>')
 
-  $.each(data.hashtags.hashtags, function(i, hashtag) {
-    $('#hashtags_'+index).append(hashtag+",")
-    // document.getElementById("hashtags_").innerHTML = data.hashtags.hashtags.toString();
+    $.each(data.hashtags.hashtags, function(i, hashtag) {
+      $('#hashtags_'+index).append(hashtag +",")
+      $('#button_'+index).append("<p class='noshow'>" + data.hashtags.hashtags[i] + "</p>")
   })
 }
+
 
 Newsfeed.twitterStreamStart = function(){
   var socket = io('http://localhost:3000/');
@@ -72,7 +82,7 @@ Newsfeed.twitterStreamStart = function(){
     console.log(tweet)
 
 
-    var html = '<div class="row"><div class="col-md-6 col-md-offset-3 tweet"><img class="twitter-pic" src="' + tweet.user.profile_image_url + '" class="avatar pull-left"/><div class="names"><span class="full-name">' + tweet.user.name + ' </span><span class="username">@' +tweet.user.screen_name + '</span></div><div class="contents"><span class="text">' + tweet.text + '</span></div></div></div>';
+    var html = '<div class="row"><div class="col-md-6 col-md-offset-3 tweet"><img class="twitter-pic" src="' + tweet.user.profile_image_url + '" class="avatar pull-left"/><div class="names"><span class="full-name">' + tweet.user.name + ' </span><span class="username">@' +tweet.user.screen_name + '</span></div><div class="contents"><span class="text"><br>' + tweet.text + '</span></div></div></div>';
     $("#twitter-feed").append(html);
 
   });

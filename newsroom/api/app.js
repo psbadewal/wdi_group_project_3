@@ -91,7 +91,7 @@ io.on('connect', function(socket){
   }
 
   socket.on('updateSearch', function (hashtags) {
-    // console.log(hashtags)
+    console.log("Guus")
     if (stream) {
       stream.stop();
       stream = null;

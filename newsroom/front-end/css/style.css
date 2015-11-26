@@ -45,13 +45,17 @@ i, cite, em, var, address, dfn {
    font-style: normal
 }
 
+
 p {
  overflow: auto;
- background: #cccccc;
+ /*background: #cccccc;*/
  text-align: left;
      padding: 5px;
 }
-
+.footer-p{
+  color: white;
+  background: none;
+}
 /*a {
   background: #00aced;
 }
@@ -85,13 +89,6 @@ h6 {
 
 /*CALL OUT TOP OF THE PAGE*/
 
-/*#callout {
-  background-image: url(https://i.guim.co.uk/img/media/e98ab675da0c019634a9258bd651378145f02419/498_157_1979_1187/master/1979.jpg?w=1920&q=85&auto=format&sharp=10&s=ab37b4b4d6d78114bdada7f0ebd4d7cc);
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 12rem 0; */
-}
-
 #callout h2 {
   color: red;
 }
@@ -116,6 +113,7 @@ img {
 #hashTagContainer {
   font-size: 20px;
   color: white;
+}
 
 /*p {
   display: inline-block;
@@ -147,12 +145,35 @@ img {
 
 footer.page-footer {
   background-color: #333333;
+  height: 180px;
 }
 
+/*Tweet feed area*/
+.full-name{
+    font-weight: bold;
+  }
 
+.username {
+  color: #00aced;
+}
+.twitter-pic{
+  position: absolute;
+  left: 40px;
+}
+
+.tweet {
+  text-align: center;
+}
+.names{
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.text {
+  text-align: center;
+}
 
 #twitter-area {
-
   padding: 10px;
   overflow: auto;
 }
@@ -163,7 +184,12 @@ footer.page-footer {
 
 .eighty{
   display: inline-block;
-  width: 75%
+  width: 75%;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  margin-top: 5px;
+  padding-left: 20px;
+  padding-top: 2px;
 }
 
 .twenty{
@@ -173,4 +199,23 @@ footer.page-footer {
 
 .twitter-pic{
   border-radius: 50%;
+}
+.text-darken-4{
+  font-size: 2rem !important ;
+  line-height: 1.5 !important ;
+}
+
+.fa-twitter:before {
+  position: absolute;
+  bottom: 6px;
+}
+.second:before{
+  top: 15px;
+  left: 15px;
+}
+
+.article-text{
+  line-height: 1.7;
+  background: white;
+  font-size: 18px;
 }
