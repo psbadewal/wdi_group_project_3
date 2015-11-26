@@ -1,6 +1,7 @@
 $(function(){
   Newsfeed.ajaxRequest();
   Newsfeed.twitterStreamStart();
+  var socket = io('http://localhost:3000/');
 
   $("#twitter-feed").hide();
 
@@ -9,10 +10,13 @@ $(function(){
     var hashArray   = $(this).siblings().text().split(/(?=#)/);
     console.log(hashArray)
 
-    var socket = io('http://localhost:3000/');
     socket.emit('updateSearch', hashArray);
     $("#twitter-overlay").trigger("click");
-  })
+  });
+
+  $("#stopSearch").on("click", function(){
+    socket.emit('stopSearch');
+  });
 })
 
 var Newsfeed = Newsfeed || {};
