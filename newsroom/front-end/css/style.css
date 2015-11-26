@@ -42,10 +42,7 @@ i, cite, em, var, address, dfn {
 p {
  overflow: auto;
  background: #cccccc;
- text-align: justify;
- -webkit-column-count: 2; /* Chrome, Safari, Opera */
-     -moz-column-count: 2; /* Firefox */
-     column-count: 2;
+ text-align: left;
      padding: 5px;
 }
 
