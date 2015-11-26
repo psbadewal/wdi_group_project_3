@@ -28,6 +28,8 @@ function showPage() {
 
 function submitForm(){
   event.preventDefault();
+  $('#agree-button').trigger("click")
+  $('#agree-button-login').trigger("click")
 
   var method = $(this).attr("method");
   var url    = "http://localhost:3000/api" + $(this).attr("action");
