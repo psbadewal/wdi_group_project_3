@@ -1,20 +1,24 @@
-.home-page {
+/*.home-page {
   min-width: 100%;
   min-height: 500px;
   background-image: url('http://i0.wp.com/www.hiphophdwallpapers.com/wp-content/uploads/2015/01/London-Wallpaper1.jpg?zoom=2&resize=680%2C425');
   background-repeat: no-repeat;
   background-size: cover;
-}
+}*/
 .logo{
   margin-top: 90px;
 }
 
 .logo img {
-  background-color: rgba(255,255,255,0.4) ;
+  background-color: rgba(255,255,255,0.4);
 }
 
 #footer{
   margin-top: -20px;
+}
+
+.slider {
+  margin-top: -20px
 }
 
 .modal {
@@ -23,3 +27,35 @@
 .modal-content {
   text-align: center;
 }
+
+.bold {
+  border-top: solid 15px #00aced;
+  font-weight: 700;
+  padding: 10px;
+  color: black;
+  background: rgba(255,255,255,0.6);
+}
+
+.hashtags{
+  border-top: solid 15px #00aced;
+  display: inline-block;
+  overflow: hidden;
+  color: black;
+  padding: 20px 10px;
+  background: rgba(255,255,255,0.6);
+}
+
+.logo_img{
+  width: 10% !important
+}
+
+g {
+  margin: 0 10px;
+}
+
+ul{
+  text-align: left;
+}
+
+
+
