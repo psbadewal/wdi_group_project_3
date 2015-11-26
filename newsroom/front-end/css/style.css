@@ -8,6 +8,7 @@ body {
 
 h2 {
   color: red;
+  text-align: center;
 }
 
 
@@ -31,7 +32,7 @@ nav {
 
 .card {
   background: #f2f2f2;
-  height: 500px;
+  height: 550px;
   border-top: 15px solid #00aced;
 }
 
@@ -94,7 +95,18 @@ img {
   max-width: 100%;
 }
 
+#logoNewsFeed {
+  margin: 0 auto;
+  height: 50%;
+  width: 50%;
+  margin-left: 25%;
+}
 
+#hashTagContainer {
+  height: 20px;
+  border: 1px solid #00aced;
+  overflow: auto;
+}
 
 /*Twitter*/
 
@@ -116,6 +128,7 @@ img {
   background-color: #00aced;
   color: white;
   font-size: 12px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
