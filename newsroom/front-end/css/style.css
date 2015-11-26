@@ -35,12 +35,34 @@ nav {
   border-top: 15px solid #00aced;
 }
 
+i, cite, em, var, address, dfn {
+   font-style: normal
+}
 
 p {
  overflow: auto;
  background: #cccccc;
- text-align: center;
+ text-align: justify;
+ -webkit-column-count: 2; /* Chrome, Safari, Opera */
+     -moz-column-count: 2; /* Firefox */
+     column-count: 2;
+     padding: 5px;
 }
+
+/*a {
+  background: #00aced;
+}
+*/
+
+/*.modal-trigger waves-effect waves-light btn {
+  background: #00aced;
+}
+*/
+
+.btn, 
+.btn-large {
+   background-color: #00aced;
+} 
 
 h6 {
   display: inline-block;
