@@ -6,13 +6,17 @@ function bindEvents(){
   ]
 
   $.each(buttons, function(index, button){
+    
+    console.log("Clicked button")
+
     $(button).on("click", authenticate);
+
   })
 }
 
 function authenticate(){
   var authType = $(this).data('auth');
-
+  $('#agree-button-login').trigger("click")
   switch (authType){
     case "twitter":
       return hello(authType).login().then(console.log.bind(console), console.log.bind(console))

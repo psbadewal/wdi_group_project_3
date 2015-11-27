@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="./css/simpletextrotator.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
-
   <!-- Local files -->
   <script type="text/javascript" src="./js/jquery.simple-text-rotator.js"></script>
   <script src="http://localhost:3000/socket.io/socket.io.js"></script>
@@ -16,21 +15,20 @@
   <script type="text/javascript" src="./js/frontpage.js"></script>
   <script type="text/javascript" src="./js/newsfeed.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
   <!-- Twitter Login --> 
    <script src="/bower_components/hello/dist/hello.all.min.js"></script>
    <script type="text/javascript" src="./js/oauth.js"></script>
-
   <!-- Local stylesheets --> 
   <link rel="stylesheet" type="text/css" href="./css/style.css">
   <link rel="stylesheet" type="text/css" href="./css/homepage.css">
 </head>
 <body>
-
 <!-- MENU BAR -->
   <header>
     <nav class="navbar navbar-default row">
-      <ul class="nav navbar-nav navbar-right">
+    <a href="#" class="brand-logo"><img class="nav-bar-logo" src="./assets/newsroom_logo_white.png"></a>
+      <ul class="nav navbar-nav navbar-right right">
+      <li><a class="about-link modal-trigger" href="#about">About</a></li>
         <li><a class="register-link logged-out modal-trigger logged-out" href="#register">Register</a></li>
         <li><a id='login-overlay'class="login-link logged-out modal-trigger modal-trigger logged-out" href="#login">Login</a></li>
         <li><a href="/" class="logout-link logged-in">Logout</a></li>
@@ -38,7 +36,6 @@
     </div>
   </nav>
 </header>
-
 <!-- REGISTER FORM -->
 <div id="register" class="modal">
   <div class="modal-content">
@@ -64,15 +61,19 @@
   </div>
 </div>
 
+<!-- PHOTO SHOWER -->
+<div id="full_photo" class="modal">
+  <div class="modal-content">
+    <img id="photo_src" src="">
+  </div>
+</div>
 
 
 <!-- LOGIN FORM -->
 <div id="login" class="modal">
   <div class="modal-content">
     <h4>Login</h4>
-
-    <button class="btn twitter-login-button" data-auth="twitter">Twitter Login</button>
-
+    <button class="btn twitter-login-button" data-auth="twitter">Twitter Login<i class="fa fa-twitter twitter-login-icon fa-2x"></i></button>
     <form class="login" method="post" action="/login">
       <div class="form-group">
         <input type="email" name="email" id="login-email" class="form-control" placeholder="Email">
@@ -87,7 +88,6 @@
     </div>
   </div>
 </div>
-
 <!-- TWITTER OVERLAY -->
 <a id='twitter-overlay'class="modal-trigger waves-effect waves-light btn noshow" href="#modal1">Modal</a>
 <div id="modal1" class="modal modal-fixed-footer">
@@ -102,23 +102,30 @@
     <a href="#!" id="stopSearch" class="modal-action modal-close waves-effect waves-green btn-flat "><i class="fa fa-close fa-2x"></i></a>
   </div>
 </div>
-
-
+<!--  ABOUT overlay -->
+<div id="about" class="modal">
+  <div class="modal-content">
+    <h3>Let the news be social</h3>
+    <hr>
+    <h5 class="about-info">Newsroom is an interactive news app<br> with live social media commentary</h5>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" id='agree-button-login' class="noshow modal-action modal-close "></a>
+    </div>
+  </div>
+</div>
 <!-- NEWS ARTICLES -->
 <div id="article-dropdown" class="container">
-   <img id="logoNewsFeed" src="/assets/newsroom_logo.png">
+   <img id="logoNewsFeed" src="./assets/newsroom_logo.png">
   <div id="newsfeed_ul" class="row">
   </div>
 </div>
-
 <!-- FRONT PAGE -->
 <div class="home-page slider">
   <ul id="front-slider" class="slides">
   </ul>
 </div>
 <!-- </div> -->
-
-
 <!-- FOOTER -->
 <footer id='footer' class="page-footer">
   <div class="container">
@@ -130,7 +137,6 @@
         <h5 class="white-text"></h5>
   <div class="footer-copyright">
     <div class="container">
-
       © The Anchors Plc. 2015
     </div>
   </div>

@@ -219,3 +219,19 @@ footer.page-footer {
   background: white;
   font-size: 18px;
 }
+
+.btn:focus,
+button:focus{
+  background-color: #00aced;
+}
+
+.btn:hover,
+button:hover{
+  background-color: #00aced;
+}
+
+.btn:active,
+button:active{
+  background-color: #00aced;
+}
+

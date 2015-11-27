@@ -2,12 +2,18 @@
 $(init);
 
 function init(){
+  $("#front-slider").on("click", loginEverywhere)
   $("form").on("submit", submitForm);
   $(".logout-link").on("click", logout);
   $(".users-link").on("click", users);
   $(".login-link, .register-link").on("click", showPage);
   hideErrors();
   checkLoginState();  
+}
+
+function loginEverywhere(){
+  console.log("Clicked on the main page")
+  $('#login').openModal();
 }
 
 function checkLoginState(){
@@ -142,6 +148,8 @@ $(document).ready(function(){
    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
    $('.modal-trigger').leanModal();
 
+
  });
+
 
 

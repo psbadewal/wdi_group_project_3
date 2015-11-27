@@ -91,7 +91,6 @@ io.on('connect', function(socket){
   }
 
   socket.on('updateSearch', function (hashtags) {
-    console.log("Guus")
     if (stream) {
       stream.stop();
       stream = null;
@@ -99,7 +98,6 @@ io.on('connect', function(socket){
 
     stream = twitter.stream("statuses/filter", { track: hashtags, lang: "en" });
     stream.on('tweet',function(tweet){
-      console.log(tweet);
       io.emit('tweets', tweet);
     })
   });
